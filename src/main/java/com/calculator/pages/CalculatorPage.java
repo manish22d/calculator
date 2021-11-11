@@ -41,14 +41,11 @@ public class CalculatorPage extends TestBase {
 	WebElement equals;
 
 	public void selectANumber(String selectnum) {
-		List<WebElement> allNums = driver.findElements(By.xpath("//input[@class='small']"));
 
-		for (WebElement num : allNums) {
-			if (num.getText().equalsIgnoreCase(selectnum)) {
-				num.click();
-				break;
-			}
-		}
+		List<WebElement> allNums = driver.findElements(By.xpath("//input[@class='small']"));
+		selectnum.chars().mapToObj(c -> (char) c).forEach(number -> {
+			allNums.stream().filter(num -> num.getText().charAt(0) == number).findFirst().get().click();
+		});
 
 	}
 

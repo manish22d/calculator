@@ -1,17 +1,14 @@
 package com.calculator.runner;
 
-import java.io.File;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 import com.calculator.testBase.TestBase;
 import com.calculator.utils.TestUtility;
-import com.vimalselvam.cucumber.listener.Reporter;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {
@@ -21,17 +18,19 @@ import io.cucumber.junit.CucumberOptions;
 public class TestRunner extends TestBase {
 
 	@BeforeClass
-	public void run() {
-		System.out.println("Manish");
+	public static void run() {
 		TestUtility.setDateForLog4j();
 	}
 
 	@AfterClass
 	public static void writeExtentReport() {
-		Reporter.loadXMLConfig(new File("src//main//resources//extent-config.xml"));
-		Reporter.setSystemInfo("user", System.getProperty("user.name"));
-		Reporter.setSystemInfo("os", "Windows 10");
-		Reporter.setTestRunnerOutput("Sample test runner output message");
+//		Reporter.loadXMLConfig(new File("src//main//resources//extent-config.xml"));
+//		Reporter.setSystemInfo("user", System.getProperty("user.name"));
+//		Reporter.setSystemInfo("os", "Windows 10");
+//		Reporter.setTestRunnerOutput("Sample test runner output message");
+
+		driver.close();
+		driver.quit();
 	}
 
 }
