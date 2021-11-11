@@ -40,11 +40,18 @@ public class CalculatorPage extends TestBase {
 	@FindBy(xpath = "//input[@class='double-y'][@value='=']")
 	WebElement equals;
 
+	@FindBy(xpath = "//input[@class='small']\"")
+	List<WebElement> allNums;
+
 	public void selectANumber(String selectnum) {
 
-		List<WebElement> allNums = driver.findElements(By.xpath("//input[@class='small']"));
+//		23 -> press 2 then press 3 
 		selectnum.chars().mapToObj(c -> (char) c).forEach(number -> {
-			allNums.stream().filter(num -> num.getText().charAt(0) == number).findFirst().get().click();
+//			allNums.stream().filter(num -> num.getText().trim().charAt(0) == number).findFirst().get().click();
+
+			for (int i = 0; i < allNums.size(); i++)
+				if (allNums.get(i).getText().trim().charAt(0) == number)
+					allNums.get(i).click();
 		});
 
 	}
@@ -74,6 +81,10 @@ public class CalculatorPage extends TestBase {
 	}
 
 	public String getDisplayedNumber() {
+		return display.getText();
+	}
+
+	public String getDisplayedError() {
 		return display.getText();
 	}
 }

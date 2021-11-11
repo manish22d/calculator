@@ -4,13 +4,10 @@ Feature: Calculator Functional Test
   Background: 
     Given calculator app is up and running
 
-  @manish
   Scenario Outline: Addition of two number completed correctly
     Given I want perfrom mathematical operation with "<number1>"
     And I want perfrom mathematical operation with "<number2>"
     When i perform addition
-    When i perform substraction
-    When i perform multiplication
     Then addition result displayed correctly
 
     Examples: 
@@ -18,20 +15,19 @@ Feature: Calculator Functional Test
       |       2 |       3 |
       |       2 |       3 |
 
-  @manish
-  Scenario Outline: Substraction of two number completed correctly
+  Scenario Outline: substraction of two number completed correctly
     Given I want perfrom mathematical operation with "<number1>"
     And I want perfrom mathematical operation with "<number2>"
+    And I want perfrom mathematical operation with "<number3>"
     When i perform substraction
     Then substraction result displayed correctly
 
     Examples: 
-      | number1 | number2 |
-      |       2 |       3 |
-      |       2 |       3 |
+      | number1 | number2 | number3 |
+      |       2 |       3 |      23 |
+      |       2 |       3 |      34 |
 
-  @manish
-  Scenario Outline: Addition of two number completed correctly
+  Scenario Outline: multiplication of two number completed correctly
     Given I want perfrom mathematical operation with "<number1>"
     And I want perfrom mathematical operation with "<number2>"
     When i perform multiplication
@@ -41,3 +37,24 @@ Feature: Calculator Functional Test
       | number1 | number2 |
       |       2 |       3 |
       |       2 |       3 |
+
+  Scenario Outline: division of two number completed correctly
+    Given I want perfrom mathematical operation with "<number1>"
+    And I want perfrom mathematical operation with "<number2>"
+    When i perform division
+    Then multiplication result displayed correctly
+
+    Examples: 
+      | number1 | number2 |
+      |       2 |       3 |
+      |       2 |       3 |
+
+  Scenario Outline: division of number By zero
+    Given I want perfrom mathematical operation with "<number1>"
+    And I want perfrom mathematical operation with "<number2>"
+    When i perform division
+    Then verify "Error" displayed
+
+    Examples: 
+      | number1 | number2 |
+      |       5 |       0 |

@@ -7,9 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -19,18 +16,11 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.calculator.testBase.TestBase;
 
-
-
 public class TestUtility extends TestBase {
-
-	public static Workbook book;
-	public static Sheet sheet;
 
 	public static Actions actions;
 	public static Select select;
 	public static Alert alert;
-
-
 
 	// Extent Report - 1.
 	public static String getSystemDate() {
@@ -56,6 +46,6 @@ public class TestUtility extends TestBase {
 	public static void setDateForLog4j() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("_ddMMyyyy_HHmmss");
 		System.setProperty("current_date", dateFormat.format(new Date()));
-		PropertyConfigurator.configure("./src/main/resources/log4j.properties");
+//		PropertyConfigurator.configure("./src/main/resources/log4j.properties");
 	}
 }

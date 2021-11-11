@@ -31,7 +31,6 @@ public class CalculatorSteps extends TestBase {
 
 	@When("^i perform addition$")
 	public void i_perform_addition() throws Throwable {
-
 		for (int i = 0; i < numbers.size(); i++) {
 			calculatorPage.selectANumber(numbers.get(i));
 			if (i < numbers.size() - 1)
@@ -42,18 +41,40 @@ public class CalculatorSteps extends TestBase {
 
 	@When("^i perform substraction$")
 	public void i_perform_substraction() throws Throwable {
+		for (int i = 0; i < numbers.size(); i++) {
+			calculatorPage.selectANumber(numbers.get(i));
+			if (i < numbers.size() - 1)
+				calculatorPage.clickSubtract();
+		}
+		calculatorPage.clickEqual();
+	}
 
+	@When("^i perform division$")
+	public void i_perform_division() throws Throwable {
+		calculatorPage.selectANumber(numbers.get(0));
+		calculatorPage.clickDivision();
+		calculatorPage.selectANumber(numbers.get(1));
+		calculatorPage.clickEqual();
 	}
 
 	@When("^i perform multiplication$")
 	public void i_perform_multiplication() throws Throwable {
-
+		for (int i = 0; i < numbers.size(); i++) {
+			calculatorPage.selectANumber(numbers.get(i));
+			if (i < numbers.size() - 1)
+				calculatorPage.clickMultiplication();
+		}
+		calculatorPage.clickEqual();
 	}
 
 	@Then("^addition result displayed correctly$")
 	public void result_displayed_correctly() throws Throwable {
-		int expectedResult = numbers.stream().mapToInt(num -> Integer.parseInt(num)).sum();
+//				numbers.stream().mapToInt(num -> Integer.parseInt(num)).sum();
+		int expectedResult = 0;
+		for (int i = 0; i < numbers.size(); i++)
+			expectedResult += Integer.parseInt(numbers.get(i));
 		int actualResult = Integer.parseInt(calculatorPage.getDisplayedNumber());
+
 		assertThat(actualResult, is(equalTo(expectedResult)));
 	}
 
@@ -76,5 +97,11 @@ public class CalculatorSteps extends TestBase {
 
 		int actualResult = Integer.parseInt(calculatorPage.getDisplayedNumber());
 		assertThat(actualResult, is(equalTo(expectedResult)));
+	}
+	
+	@Given("^verify \"([^\"]*)\" displayed$")
+	public void verify_displayed(String expectedMsg) throws Throwable {
+		String actualMsg = calculatorPage.getDisplayedError();
+		assertThat(actualMsg, is(equalTo(expectedMsg)));
 	}
 }
