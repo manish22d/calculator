@@ -1,2 +1,3 @@
 com\calculator\testSteps\CalculatorSteps.class
+com\calculator\testSteps\Hook.class
 com\calculator\runner\TestRunner.class
