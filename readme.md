@@ -23,7 +23,7 @@ This is Java based Rest Assured project. It follows  BDD framework
     * Select Maven build -> Click on new (top right corner on same window)
     * Select Base Directory
     * give goal as test
-    * In Environment tab, click on Add. Give name "URL" and value as your host url (like https://api.openweathermap.org)
+    * In Environment tab, click on Add. Give name "URL" and value as your host url 
     * Click on Save and run
 
 ### Running in Jenkins Pipeline
@@ -34,7 +34,7 @@ This is Java based Rest Assured project. It follows  BDD framework
 
 ### Running using maven command
 * we can use below maven command to run test either via command prompt or pipeline.
-    * ```mvn clean test -Dcucumber.options="--tags @debug1"```
+    * ```mvn clean test -Dcucumber.options="--tags @test"```
 
 ## How do I know if Test is passed?
 * Option 1 : In Console Failures should be zero

@@ -1,10 +1,11 @@
-@test
+
 Feature: Calculator Functional Test
   I want to perform mathematical operation on calculator
 
   Background:
     Given calculator app is up and running
 
+  @test
   Scenario Outline: Addition of two number completed correctly
     Given I want perform mathematical operation with "<number1>"
     And I want perform mathematical operation with "<number2>"

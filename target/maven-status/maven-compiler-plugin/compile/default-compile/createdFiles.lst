@@ -1,7 +1,0 @@
-com\calculator\core\WebDriverFactory$1.class
-com\calculator\core\WebDriverManager.class
-com\calculator\core\DriverType.class
-com\calculator\core\WebDriverFactory.class
-com\calculator\pages\CalculatorPage.class
-com\calculator\listener\WebEventListener.class
-com\calculator\constant\Constants.class
