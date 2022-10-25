@@ -5,7 +5,7 @@ Feature: Calculator Functional Test
   Background:
     Given calculator app is up and running
 
-  @test
+
   Scenario Outline: Addition of two number completed correctly
     Given I want perform mathematical operation with "<number1>"
     And I want perform mathematical operation with "<number2>"
@@ -61,7 +61,7 @@ Feature: Calculator Functional Test
       | number1 | number2 |
       | 5       | 0       |
 
-
+@test
   Scenario Outline: output out of range
     Given I want perform mathematical operation with "<number1>"
     And I want perform mathematical operation with "<number2>"
@@ -70,4 +70,4 @@ Feature: Calculator Functional Test
 
     Examples:
       | number1 | number2 |
-      | 50000   | 50000   |
+      | 5000   | 5000   |

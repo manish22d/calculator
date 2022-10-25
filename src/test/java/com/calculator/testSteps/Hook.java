@@ -20,7 +20,6 @@ public class Hook {
     }
     @AfterAll
     public static  void tearDown(){
-        WebDriverManager.getDriver().close();
-        WebDriverManager.getDriver().quit();
+
     }
 }

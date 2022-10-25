@@ -31,7 +31,8 @@ public class TestRunner {
     @AfterClass()
     public static void teardown() {
         System.out.println("Ran the after");
-
+        WebDriverManager.getDriver().close();
+        WebDriverManager.getDriver().quit();
     }
 
 }
