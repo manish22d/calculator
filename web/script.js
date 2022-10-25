@@ -10,8 +10,9 @@ function display(value) {
     else{
         var newValue = document.getElementById("result").value
         var output = newValue.split(/[+-/\\*]/)
-        var valToCompare = output.length>1 ?output[output.length-1]:output[0]
-        if(valToCompare <= 9999.99 && valToCompare >= -9999.99 )
+        newValue = output.length>1 ?output[output.length-1]:output[0]
+        newValue = newValue + value
+        if(newValue <= 9999.99 && newValue >= -9999.99 )
             document.getElementById("result").value += value;
     }
 }
